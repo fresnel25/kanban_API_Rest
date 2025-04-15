@@ -13,3 +13,46 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model colonne {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  description String
+
+  created_At DateTime @default(now())
+  updated_At DateTime @updatedAt
+
+  cartes carte[]
+}
+
+model carte {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String
+  Colonne     colonne? @relation(fields: [colonneId], references: [id])
+  colonneId   Int?
+  start_date  DateTime
+  end_date    DateTime
+
+  created_At      DateTime          @default(now())
+  updated_At      DateTime          @updatedAt
+  carte_categorie carte_categorie[]
+}
+
+model categorie {
+  id              Int               @id @default(autoincrement())
+  nom             String            @unique
+  created_At      DateTime          @default(now())
+  updated_At      DateTime          @updatedAt
+  carte_categorie carte_categorie[]
+}
+
+model carte_categorie {
+  id          Int       @id @default(autoincrement())
+  carte       carte     @relation(fields: [carteId], references: [id])
+  carteId     Int
+  categorie   categorie @relation(fields: [categorieId], references: [id])
+  categorieId Int
+  created_At  DateTime  @default(now())
+  updated_At  DateTime  @updatedAt
+}
