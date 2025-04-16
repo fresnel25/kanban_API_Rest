@@ -1,4 +1,4 @@
-const prisma = require("../../db/dbconfig.js");
+const prisma = require("../db/dbconfig");
 
 const CreateColonne = async (req, res) => {
   // recherche d'une colonne à partir de son nom dans la base de données

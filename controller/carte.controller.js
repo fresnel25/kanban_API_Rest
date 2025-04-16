@@ -1,4 +1,4 @@
-const prisma = require("../../db/dbconfig.js");
+const prisma = require("../db/dbconfig.js");
 
 const CreateCarte = async (req, res) => {
   // recherche d'une carte à partir de son nom dans la base de données
@@ -28,15 +28,11 @@ const CreateCarte = async (req, res) => {
 
 const ReadCarte = async (req, res) => {
   // recupère toutes les cartes présentes dans la base de données via prisma
-  const getcarte = await prisma.carte.findMany({
-    include: {
-      cartes: true // Inclut les cartes associées à chaque carte
-    }
-  });
+  const getCarte = await prisma.carte.findMany();
   // retourne une réponse 200 avec toutes les cartes et leurs cartes
   return res
     .status(200)
-    .json({ message: "cards retrieved successfully", data: getcarte });
+    .json({ message: "cards retrieved successfully", data: getCarte });
 };
 
 const ReadOnlyCarte = async (req, res) => {
@@ -48,9 +44,6 @@ const ReadOnlyCarte = async (req, res) => {
     where: {
       id: Number(carteId) // Convertit l'ID en nombre (car il est reçu sous forme de chaîne)
     },
-    include: {
-      cartes: true // Inclut les cartes associées à cette carte
-    }
   });
 
   // Vérifie si la carte a été trouvée
@@ -88,7 +81,10 @@ const UpdateCarte = async (req, res) => {
       },
       data: {
         name: req.body.name,
-        description: req.body.description
+        description: req.body.description,
+        start_date: req.body.start_date,
+        end_date: req.body.end_date,
+        colonneId: req.body.colonneId
       }
     });
     // Si oui, valide les modifications et retourne une réponse 201 avec la carte et ses cartes
@@ -125,9 +121,9 @@ const DeleteCarte = async (req, res) => {
 };
 
 module.exports = {
-    CreateCarte,
-    ReadCarte,
-    ReadOnlyCarte,
-    UpdateCarte,
-    DeleteCarte,
-}
+  CreateCarte,
+  ReadCarte,
+  ReadOnlyCarte,
+  UpdateCarte,
+  DeleteCarte
+};
