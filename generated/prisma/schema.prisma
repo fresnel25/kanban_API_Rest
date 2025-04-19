@@ -18,6 +18,7 @@ model colonne {
   id          Int    @id @default(autoincrement())
   name        String @unique
   description String
+  position    Int    @default(0)
 
   created_At DateTime @default(now())
   updated_At DateTime @updatedAt
@@ -29,6 +30,7 @@ model carte {
   id          Int      @id @default(autoincrement())
   name        String   @unique
   description String
+  position    Int      @default(0)
   Colonne     colonne? @relation(fields: [colonneId], references: [id])
   colonneId   Int?
   start_date  DateTime

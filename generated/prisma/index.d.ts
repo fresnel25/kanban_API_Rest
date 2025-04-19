@@ -1248,16 +1248,19 @@ export namespace Prisma {
 
   export type ColonneAvgAggregateOutputType = {
     id: number | null
+    position: number | null
   }
 
   export type ColonneSumAggregateOutputType = {
     id: number | null
+    position: number | null
   }
 
   export type ColonneMinAggregateOutputType = {
     id: number | null
     name: string | null
     description: string | null
+    position: number | null
     created_At: Date | null
     updated_At: Date | null
   }
@@ -1266,6 +1269,7 @@ export namespace Prisma {
     id: number | null
     name: string | null
     description: string | null
+    position: number | null
     created_At: Date | null
     updated_At: Date | null
   }
@@ -1274,6 +1278,7 @@ export namespace Prisma {
     id: number
     name: number
     description: number
+    position: number
     created_At: number
     updated_At: number
     _all: number
@@ -1282,16 +1287,19 @@ export namespace Prisma {
 
   export type ColonneAvgAggregateInputType = {
     id?: true
+    position?: true
   }
 
   export type ColonneSumAggregateInputType = {
     id?: true
+    position?: true
   }
 
   export type ColonneMinAggregateInputType = {
     id?: true
     name?: true
     description?: true
+    position?: true
     created_At?: true
     updated_At?: true
   }
@@ -1300,6 +1308,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    position?: true
     created_At?: true
     updated_At?: true
   }
@@ -1308,6 +1317,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    position?: true
     created_At?: true
     updated_At?: true
     _all?: true
@@ -1403,6 +1413,7 @@ export namespace Prisma {
     id: number
     name: string
     description: string
+    position: number
     created_At: Date
     updated_At: Date
     _count: ColonneCountAggregateOutputType | null
@@ -1430,6 +1441,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     created_At?: boolean
     updated_At?: boolean
     cartes?: boolean | colonne$cartesArgs<ExtArgs>
@@ -1440,6 +1452,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     created_At?: boolean
     updated_At?: boolean
   }, ExtArgs["result"]["colonne"]>
@@ -1448,6 +1461,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     created_At?: boolean
     updated_At?: boolean
   }, ExtArgs["result"]["colonne"]>
@@ -1456,11 +1470,12 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     created_At?: boolean
     updated_At?: boolean
   }
 
-  export type colonneOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "created_At" | "updated_At", ExtArgs["result"]["colonne"]>
+  export type colonneOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "position" | "created_At" | "updated_At", ExtArgs["result"]["colonne"]>
   export type colonneInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cartes?: boolean | colonne$cartesArgs<ExtArgs>
     _count?: boolean | ColonneCountOutputTypeDefaultArgs<ExtArgs>
@@ -1477,6 +1492,7 @@ export namespace Prisma {
       id: number
       name: string
       description: string
+      position: number
       created_At: Date
       updated_At: Date
     }, ExtArgs["result"]["colonne"]>
@@ -1906,6 +1922,7 @@ export namespace Prisma {
     readonly id: FieldRef<"colonne", 'Int'>
     readonly name: FieldRef<"colonne", 'String'>
     readonly description: FieldRef<"colonne", 'String'>
+    readonly position: FieldRef<"colonne", 'Int'>
     readonly created_At: FieldRef<"colonne", 'DateTime'>
     readonly updated_At: FieldRef<"colonne", 'DateTime'>
   }
@@ -2352,11 +2369,13 @@ export namespace Prisma {
 
   export type CarteAvgAggregateOutputType = {
     id: number | null
+    position: number | null
     colonneId: number | null
   }
 
   export type CarteSumAggregateOutputType = {
     id: number | null
+    position: number | null
     colonneId: number | null
   }
 
@@ -2364,6 +2383,7 @@ export namespace Prisma {
     id: number | null
     name: string | null
     description: string | null
+    position: number | null
     colonneId: number | null
     start_date: Date | null
     end_date: Date | null
@@ -2375,6 +2395,7 @@ export namespace Prisma {
     id: number | null
     name: string | null
     description: string | null
+    position: number | null
     colonneId: number | null
     start_date: Date | null
     end_date: Date | null
@@ -2386,6 +2407,7 @@ export namespace Prisma {
     id: number
     name: number
     description: number
+    position: number
     colonneId: number
     start_date: number
     end_date: number
@@ -2397,11 +2419,13 @@ export namespace Prisma {
 
   export type CarteAvgAggregateInputType = {
     id?: true
+    position?: true
     colonneId?: true
   }
 
   export type CarteSumAggregateInputType = {
     id?: true
+    position?: true
     colonneId?: true
   }
 
@@ -2409,6 +2433,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    position?: true
     colonneId?: true
     start_date?: true
     end_date?: true
@@ -2420,6 +2445,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    position?: true
     colonneId?: true
     start_date?: true
     end_date?: true
@@ -2431,6 +2457,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    position?: true
     colonneId?: true
     start_date?: true
     end_date?: true
@@ -2529,6 +2556,7 @@ export namespace Prisma {
     id: number
     name: string
     description: string
+    position: number
     colonneId: number | null
     start_date: Date
     end_date: Date
@@ -2559,6 +2587,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     colonneId?: boolean
     start_date?: boolean
     end_date?: boolean
@@ -2573,6 +2602,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     colonneId?: boolean
     start_date?: boolean
     end_date?: boolean
@@ -2585,6 +2615,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     colonneId?: boolean
     start_date?: boolean
     end_date?: boolean
@@ -2597,6 +2628,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    position?: boolean
     colonneId?: boolean
     start_date?: boolean
     end_date?: boolean
@@ -2604,7 +2636,7 @@ export namespace Prisma {
     updated_At?: boolean
   }
 
-  export type carteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "colonneId" | "start_date" | "end_date" | "created_At" | "updated_At", ExtArgs["result"]["carte"]>
+  export type carteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "position" | "colonneId" | "start_date" | "end_date" | "created_At" | "updated_At", ExtArgs["result"]["carte"]>
   export type carteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Colonne?: boolean | carte$ColonneArgs<ExtArgs>
     carte_categorie?: boolean | carte$carte_categorieArgs<ExtArgs>
@@ -2627,6 +2659,7 @@ export namespace Prisma {
       id: number
       name: string
       description: string
+      position: number
       colonneId: number | null
       start_date: Date
       end_date: Date
@@ -3060,6 +3093,7 @@ export namespace Prisma {
     readonly id: FieldRef<"carte", 'Int'>
     readonly name: FieldRef<"carte", 'String'>
     readonly description: FieldRef<"carte", 'String'>
+    readonly position: FieldRef<"carte", 'Int'>
     readonly colonneId: FieldRef<"carte", 'Int'>
     readonly start_date: FieldRef<"carte", 'DateTime'>
     readonly end_date: FieldRef<"carte", 'DateTime'>
@@ -5739,6 +5773,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     description: 'description',
+    position: 'position',
     created_At: 'created_At',
     updated_At: 'updated_At'
   };
@@ -5750,6 +5785,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     description: 'description',
+    position: 'position',
     colonneId: 'colonneId',
     start_date: 'start_date',
     end_date: 'end_date',
@@ -5876,6 +5912,7 @@ export namespace Prisma {
     id?: IntFilter<"colonne"> | number
     name?: StringFilter<"colonne"> | string
     description?: StringFilter<"colonne"> | string
+    position?: IntFilter<"colonne"> | number
     created_At?: DateTimeFilter<"colonne"> | Date | string
     updated_At?: DateTimeFilter<"colonne"> | Date | string
     cartes?: CarteListRelationFilter
@@ -5885,6 +5922,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     created_At?: SortOrder
     updated_At?: SortOrder
     cartes?: carteOrderByRelationAggregateInput
@@ -5897,6 +5935,7 @@ export namespace Prisma {
     OR?: colonneWhereInput[]
     NOT?: colonneWhereInput | colonneWhereInput[]
     description?: StringFilter<"colonne"> | string
+    position?: IntFilter<"colonne"> | number
     created_At?: DateTimeFilter<"colonne"> | Date | string
     updated_At?: DateTimeFilter<"colonne"> | Date | string
     cartes?: CarteListRelationFilter
@@ -5906,6 +5945,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     created_At?: SortOrder
     updated_At?: SortOrder
     _count?: colonneCountOrderByAggregateInput
@@ -5922,6 +5962,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"colonne"> | number
     name?: StringWithAggregatesFilter<"colonne"> | string
     description?: StringWithAggregatesFilter<"colonne"> | string
+    position?: IntWithAggregatesFilter<"colonne"> | number
     created_At?: DateTimeWithAggregatesFilter<"colonne"> | Date | string
     updated_At?: DateTimeWithAggregatesFilter<"colonne"> | Date | string
   }
@@ -5933,6 +5974,7 @@ export namespace Prisma {
     id?: IntFilter<"carte"> | number
     name?: StringFilter<"carte"> | string
     description?: StringFilter<"carte"> | string
+    position?: IntFilter<"carte"> | number
     colonneId?: IntNullableFilter<"carte"> | number | null
     start_date?: DateTimeFilter<"carte"> | Date | string
     end_date?: DateTimeFilter<"carte"> | Date | string
@@ -5946,6 +5988,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     colonneId?: SortOrderInput | SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
@@ -5962,6 +6005,7 @@ export namespace Prisma {
     OR?: carteWhereInput[]
     NOT?: carteWhereInput | carteWhereInput[]
     description?: StringFilter<"carte"> | string
+    position?: IntFilter<"carte"> | number
     colonneId?: IntNullableFilter<"carte"> | number | null
     start_date?: DateTimeFilter<"carte"> | Date | string
     end_date?: DateTimeFilter<"carte"> | Date | string
@@ -5975,6 +6019,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     colonneId?: SortOrderInput | SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
@@ -5994,6 +6039,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"carte"> | number
     name?: StringWithAggregatesFilter<"carte"> | string
     description?: StringWithAggregatesFilter<"carte"> | string
+    position?: IntWithAggregatesFilter<"carte"> | number
     colonneId?: IntNullableWithAggregatesFilter<"carte"> | number | null
     start_date?: DateTimeWithAggregatesFilter<"carte"> | Date | string
     end_date?: DateTimeWithAggregatesFilter<"carte"> | Date | string
@@ -6116,6 +6162,7 @@ export namespace Prisma {
   export type colonneCreateInput = {
     name: string
     description: string
+    position?: number
     created_At?: Date | string
     updated_At?: Date | string
     cartes?: carteCreateNestedManyWithoutColonneInput
@@ -6125,6 +6172,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     created_At?: Date | string
     updated_At?: Date | string
     cartes?: carteUncheckedCreateNestedManyWithoutColonneInput
@@ -6133,6 +6181,7 @@ export namespace Prisma {
   export type colonneUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_At?: DateTimeFieldUpdateOperationsInput | Date | string
     cartes?: carteUpdateManyWithoutColonneNestedInput
@@ -6142,6 +6191,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_At?: DateTimeFieldUpdateOperationsInput | Date | string
     cartes?: carteUncheckedUpdateManyWithoutColonneNestedInput
@@ -6151,6 +6201,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     created_At?: Date | string
     updated_At?: Date | string
   }
@@ -6158,6 +6209,7 @@ export namespace Prisma {
   export type colonneUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_At?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6166,6 +6218,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_At?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6173,6 +6226,7 @@ export namespace Prisma {
   export type carteCreateInput = {
     name: string
     description: string
+    position?: number
     start_date: Date | string
     end_date: Date | string
     created_At?: Date | string
@@ -6185,6 +6239,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     colonneId?: number | null
     start_date: Date | string
     end_date: Date | string
@@ -6196,6 +6251,7 @@ export namespace Prisma {
   export type carteUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6208,6 +6264,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     colonneId?: NullableIntFieldUpdateOperationsInput | number | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6220,6 +6277,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     colonneId?: number | null
     start_date: Date | string
     end_date: Date | string
@@ -6230,6 +6288,7 @@ export namespace Prisma {
   export type carteUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6240,6 +6299,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     colonneId?: NullableIntFieldUpdateOperationsInput | number | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6399,18 +6459,21 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     created_At?: SortOrder
     updated_At?: SortOrder
   }
 
   export type colonneAvgOrderByAggregateInput = {
     id?: SortOrder
+    position?: SortOrder
   }
 
   export type colonneMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     created_At?: SortOrder
     updated_At?: SortOrder
   }
@@ -6419,12 +6482,14 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     created_At?: SortOrder
     updated_At?: SortOrder
   }
 
   export type colonneSumOrderByAggregateInput = {
     id?: SortOrder
+    position?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -6510,6 +6575,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     colonneId?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
@@ -6519,6 +6585,7 @@ export namespace Prisma {
 
   export type carteAvgOrderByAggregateInput = {
     id?: SortOrder
+    position?: SortOrder
     colonneId?: SortOrder
   }
 
@@ -6526,6 +6593,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     colonneId?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
@@ -6537,6 +6605,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    position?: SortOrder
     colonneId?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
@@ -6546,6 +6615,7 @@ export namespace Prisma {
 
   export type carteSumOrderByAggregateInput = {
     id?: SortOrder
+    position?: SortOrder
     colonneId?: SortOrder
   }
 
@@ -6658,6 +6728,14 @@ export namespace Prisma {
     set?: string
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -6674,14 +6752,6 @@ export namespace Prisma {
     update?: carteUpdateWithWhereUniqueWithoutColonneInput | carteUpdateWithWhereUniqueWithoutColonneInput[]
     updateMany?: carteUpdateManyWithWhereWithoutColonneInput | carteUpdateManyWithWhereWithoutColonneInput[]
     deleteMany?: carteScalarWhereInput | carteScalarWhereInput[]
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type carteUncheckedUpdateManyWithoutColonneNestedInput = {
@@ -6969,6 +7039,7 @@ export namespace Prisma {
   export type carteCreateWithoutColonneInput = {
     name: string
     description: string
+    position?: number
     start_date: Date | string
     end_date: Date | string
     created_At?: Date | string
@@ -6980,6 +7051,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     start_date: Date | string
     end_date: Date | string
     created_At?: Date | string
@@ -7020,6 +7092,7 @@ export namespace Prisma {
     id?: IntFilter<"carte"> | number
     name?: StringFilter<"carte"> | string
     description?: StringFilter<"carte"> | string
+    position?: IntFilter<"carte"> | number
     colonneId?: IntNullableFilter<"carte"> | number | null
     start_date?: DateTimeFilter<"carte"> | Date | string
     end_date?: DateTimeFilter<"carte"> | Date | string
@@ -7030,6 +7103,7 @@ export namespace Prisma {
   export type colonneCreateWithoutCartesInput = {
     name: string
     description: string
+    position?: number
     created_At?: Date | string
     updated_At?: Date | string
   }
@@ -7038,6 +7112,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     created_At?: Date | string
     updated_At?: Date | string
   }
@@ -7084,6 +7159,7 @@ export namespace Prisma {
   export type colonneUpdateWithoutCartesInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_At?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7092,6 +7168,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_At?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7165,6 +7242,7 @@ export namespace Prisma {
   export type carteCreateWithoutCarte_categorieInput = {
     name: string
     description: string
+    position?: number
     start_date: Date | string
     end_date: Date | string
     created_At?: Date | string
@@ -7176,6 +7254,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     colonneId?: number | null
     start_date: Date | string
     end_date: Date | string
@@ -7220,6 +7299,7 @@ export namespace Prisma {
   export type carteUpdateWithoutCarte_categorieInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7231,6 +7311,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     colonneId?: NullableIntFieldUpdateOperationsInput | number | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7266,6 +7347,7 @@ export namespace Prisma {
     id?: number
     name: string
     description: string
+    position?: number
     start_date: Date | string
     end_date: Date | string
     created_At?: Date | string
@@ -7275,6 +7357,7 @@ export namespace Prisma {
   export type carteUpdateWithoutColonneInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7286,6 +7369,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7297,6 +7381,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_At?: DateTimeFieldUpdateOperationsInput | Date | string

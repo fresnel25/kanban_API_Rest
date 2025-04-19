@@ -15,7 +15,7 @@ const CreateCarte = async (req, res) => {
         description: req.body.description,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
-        carteId: req.body.carteId
+        colonneId: req.body.colonneId
       }
     });
     return res

@@ -121,6 +121,7 @@ exports.Prisma.ColonneScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
+  position: 'position',
   created_At: 'created_At',
   updated_At: 'updated_At'
 };
@@ -129,6 +130,7 @@ exports.Prisma.CarteScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
+  position: 'position',
   colonneId: 'colonneId',
   start_date: 'start_date',
   end_date: 'end_date',

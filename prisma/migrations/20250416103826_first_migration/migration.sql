@@ -3,6 +3,7 @@ CREATE TABLE "colonne" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
+    "position" INTEGER NOT NULL DEFAULT 0,
     "created_At" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_At" TIMESTAMP(3) NOT NULL,
 
@@ -14,6 +15,7 @@ CREATE TABLE "carte" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
+    "position" INTEGER NOT NULL DEFAULT 0,
     "colonneId" INTEGER,
     "start_date" TIMESTAMP(3) NOT NULL,
     "end_date" TIMESTAMP(3) NOT NULL,
