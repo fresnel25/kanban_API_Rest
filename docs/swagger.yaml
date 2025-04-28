@@ -1,0 +1,326 @@
+openapi: 3.0.0
+info:
+  title: API Kanban
+  version: 1.0.0
+  description: Documentation Swagger de l’API REST pour le projet Kanban
+
+servers:
+  - url: http://localhost:5000/api
+
+tags:
+  - name: Colonne
+  - name: Carte
+  - name: Categorie
+
+paths:
+  /colonne/createcolonne:
+    post:
+      summary: Créer une colonne
+      tags: [Colonne]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, description]
+              properties:
+                name:
+                  type: string
+                  example: "À faire"
+                description:
+                  type: string
+                  example: "Colonne des tâches à faire"
+                position:
+                  type: integer
+                  example: 1
+      responses:
+        "201":
+          description: Colonne créée
+
+  /colonne/readcolonne:
+    get:
+      summary: Lire toutes les colonnes
+      tags: [Colonne]
+      responses:
+        "200":
+          description: Liste des colonnes
+
+  /colonne/readonlycolonne/{id}:
+    get:
+      summary: Lire une colonne par ID
+      tags: [Colonne]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Colonne trouvée
+
+  /colonne/updatecolonne/{id}:
+    put:
+      summary: Mettre à jour une colonne
+      tags: [Colonne]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                position:
+                  type: integer
+      responses:
+        "200":
+          description: Colonne mise à jour
+
+  /colonne/deletecolonne/{id}:
+    delete:
+      summary: Supprimer une colonne
+      tags: [Colonne]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Colonne supprimée
+
+  /colonne/movecolonne/{id}:
+    put:
+      summary: Déplacer une colonne
+      tags: [Colonne]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                newPosition:
+                  type: integer
+      responses:
+        "200":
+          description: Colonne déplacée
+
+  /carte/createcarte:
+    post:
+      summary: Créer une carte
+      tags: [Carte]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, description, colonneId, start_date, end_date]
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                colonneId:
+                  type: integer
+                position:
+                  type: integer
+                start_date:
+                  type: string
+                  format: date-time
+                end_date:
+                  type: string
+                  format: date-time
+      responses:
+        "201":
+          description: Carte créée
+
+  /carte/readcarte:
+    get:
+      summary: Lire toutes les cartes
+      tags: [Carte]
+      responses:
+        "200":
+          description: Liste des cartes
+
+  /carte/readonlycarte/{id}:
+    get:
+      summary: Lire une carte par ID
+      tags: [Carte]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Carte trouvée
+
+  /carte/updatecarte/{id}:
+    put:
+      summary: Mettre à jour une carte
+      tags: [Carte]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                colonneId:
+                  type: integer
+                position:
+                  type: integer
+                start_date:
+                  type: string
+                  format: date-time
+                end_date:
+                  type: string
+                  format: date-time
+      responses:
+        "200":
+          description: Carte mise à jour
+
+  /carte/deletecarte/{id}:
+    delete:
+      summary: Supprimer une carte
+      tags: [Carte]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Carte supprimée
+
+  /carte/movecarte/{id}:
+    put:
+      summary: Déplacer une carte
+      tags: [Carte]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                newPosition:
+                  type: integer
+      responses:
+        "200":
+          description: Carte déplacée
+
+  /categorie/createcategorie:
+    post:
+      summary: Créer une catégorie
+      tags: [Categorie]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nom]
+              properties:
+                nom:
+                  type: string
+      responses:
+        "201":
+          description: Catégorie créée
+
+  /categorie/readcategorie:
+    get:
+      summary: Lire toutes les catégories
+      tags: [Categorie]
+      responses:
+        "200":
+          description: Liste des catégories
+
+  /categorie/readonlycategorie/{id}:
+    get:
+      summary: Lire une catégorie par ID
+      tags: [Categorie]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Catégorie trouvée
+
+  /categorie/updatecategorie/{id}:
+    put:
+      summary: Mettre à jour une catégorie
+      tags: [Categorie]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+      responses:
+        "200":
+          description: Catégorie mise à jour
+
+  /categorie/deletecategorie/{id}:
+    delete:
+      summary: Supprimer une catégorie
+      tags: [Categorie]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Catégorie supprimée

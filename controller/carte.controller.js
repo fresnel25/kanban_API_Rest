@@ -7,12 +7,19 @@ const CreateCarte = async (req, res) => {
       name: req.body.name
     }
   });
+
+  // Trouve la plus grande position actuelle dans la base
+  const maxPos = await prisma.carte.aggregate({
+    _max: { position: true }
+  });
+
   // Vérifie si le nom de la carte a été trouvée
   if (!findName) {
     const createCarte = await prisma.carte.create({
       data: {
         name: req.body.name,
         description: req.body.description,
+        position: (maxPos._max.position || 0) + 1,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
         colonneId: req.body.colonneId
@@ -43,7 +50,7 @@ const ReadOnlyCarte = async (req, res) => {
   const findCarte_ById = await prisma.carte.findUnique({
     where: {
       id: Number(carteId) // Convertit l'ID en nombre (car il est reçu sous forme de chaîne)
-    },
+    }
   });
 
   // Vérifie si la carte a été trouvée
@@ -113,6 +120,13 @@ const DeleteCarte = async (req, res) => {
         id: Number(carteId)
       }
     });
+
+    // Réorganiser les positions : décrémente les colonnes suivantes
+    await prisma.carte.updateMany({
+      where: { position: { gt: findColonne_ById.position } },
+      data: { position: { decrement: 1 } }
+    });
+
     return res.status(204).json({ message: "card deleted successfully" });
   } else {
     // Si non, retourne une réponse 404 avec un message d'erreur
@@ -120,10 +134,45 @@ const DeleteCarte = async (req, res) => {
   }
 };
 
+const MoveCarte = async (req, res) => {
+  const id = Number(req.params.id);
+  const newPosition = Number(req.body.position); // la position cible
+
+  const carte = await prisma.carte.findUnique({ where: { id } });
+  if (!carte) return res.status(404).json({ message: "card not found" });
+
+  const currentPosition = carte.position;
+
+  // Cas : montée
+  if (newPosition < currentPosition) {
+    await prisma.carte.updateMany({
+      where: { position: { gte: newPosition, lt: currentPosition } },
+      data: { position: { increment: 1 } }
+    });
+  }
+
+  // Cas : descente
+  if (newPosition > currentPosition) {
+    await prisma.carte.updateMany({
+      where: { position: { lte: newPosition, gt: currentPosition } },
+      data: { position: { decrement: 1 } }
+    });
+  }
+
+  // Appliquer la nouvelle position
+  const updated = await prisma.carte.update({
+    where: { id },
+    data: { position: newPosition }
+  });
+
+  return res.status(200).json({ message: "card moved", data: updated });
+};
+
 module.exports = {
   CreateCarte,
   ReadCarte,
   ReadOnlyCarte,
   UpdateCarte,
-  DeleteCarte
+  DeleteCarte,
+  MoveCarte
 };

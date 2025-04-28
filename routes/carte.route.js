@@ -4,7 +4,8 @@ const {
   ReadCarte,
   ReadOnlyCarte,
   UpdateCarte,
-  DeleteCarte
+  DeleteCarte,
+  MoveCarte
 } = require("../controller/carte.controller");
 
 const carteRouter = express.Router();
@@ -14,5 +15,6 @@ carteRouter.get("/readcarte", ReadCarte);
 carteRouter.get("/readonlycarte/:id", ReadOnlyCarte);
 carteRouter.put("/updatecarte/:id", UpdateCarte);
 carteRouter.delete("/deletecarte/:id", DeleteCarte);
+carteRouter.put("/movecarte/:id", MoveCarte)
 
 module.exports = carteRouter;
