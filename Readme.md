@@ -24,7 +24,7 @@
 
 ### Cloner le projet :
 
-    git clone https://github.com/ton-repo/3NJS.git
+    git clone https://github.com/fresnel25/kanban_API_Rest.git
 
     cd 3NJS
 

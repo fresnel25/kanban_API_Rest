@@ -31,7 +31,7 @@ model carte {
   name        String   @unique
   description String
   position Int @default(0)
-  Colonne     colonne? @relation(fields: [colonneId], references: [id])
+  Colonne     colonne? @relation(fields: [colonneId], references: [id], onDelete: Cascade)
   colonneId   Int?
   start_date  DateTime
   end_date    DateTime
